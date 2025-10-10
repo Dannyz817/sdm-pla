@@ -49,8 +49,18 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
             }
         });
 
+        // Listar usuários
+        app.get('/usuarios', async (req, res) => {
+            try {
+                const users = await User.find().sort({createdAt: -1});
+                return res.json(users);
+            } catch (err) {
+                console.error(err);
+                return res.status(500).json({error: 'Erro ao buscar usuários'});
+            }
+        });
        
 
         app.listen(3000, () => {
-            console.log('Order service running on port 3000');
+            console.log('User service running on port 3000');
         });
