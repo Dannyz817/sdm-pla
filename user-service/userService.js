@@ -12,5 +12,5 @@ app.post('/usuarios', async (req, res) => {
     res.send({message: 'Usuário criado com sucesso!', usuario})
 });
 app.listen(3000, () => {
-    console.log('User Service rodando na porta 3000');
+    console.log('User Service rodando na porta 4000');
 });
